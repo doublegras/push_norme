@@ -6,7 +6,7 @@
 /*   By: maambuhl <marcambuehl4@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 15:33:41 by maambuhl          #+#    #+#             */
-/*   Updated: 2025/01/26 20:19:32 by maambuhl         ###   LAUSANNE.ch       */
+/*   Updated: 2025/01/26 22:56:13 by maambuhl         ###   LAUSANNE.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void	algo(t_stack_info *stack_i)
 		best_index = 0;
 		stack_i->min = find_min(stack_i->stack, *stack_i->b);
 		stack_i->max = find_max(stack_i->stack, *stack_i->b);
-		place = find_place(stack_i->stack, stack_i->b, stack_i);
+		place = find_place_i(stack_i, stack_i->stack[(*stack_i->b) + 1]);
 		stack_i->best_index_b = place;
 		init_min_mv = offset_b(stack_i, place);
 		best_index = find_best_i(stack_i, init_min_mv);
@@ -95,24 +95,30 @@ void	algo(t_stack_info *stack_i)
 	final_push_to_a(stack_i);
 }
 
-int	main(int ac, char **av)
+void	init_struct(t_stack_info *stack_i, char **av, int ac)
 {
 	int				*stack;
+
+	stack = create_stack(av + 1, ac - 1);
+	stack_i->size = ac - 1;
+	stack_i->stack = stack;
+	stack_i->max = 0;
+	stack_i->min = 0;
+	stack_i->nb_mv_b = 0;
+	stack_i->nb_mv_a = 0;
+}
+
+int	main(int ac, char **av)
+{
 	int				b;
 	t_stack_info	stack_i;
 
 	if (ac < 2)
 		err("Error\nYou should provide stack a as arguments");
 	check_input(av + 1, ac - 1);
-	stack = create_stack(av + 1, ac - 1);
+	init_struct(&stack_i, av, ac);
 	b = -1;
-	stack_i.size = ac - 1;
-	stack_i.stack = stack;
 	stack_i.b = &b;
-	stack_i.max = 0;
-	stack_i.min = 0;
-	stack_i.nb_mv_b = 0;
-	stack_i.nb_mv_a = 0;
 	if (ac == 4)
 		last_three(&stack_i);
 	if (ac <= 6)
