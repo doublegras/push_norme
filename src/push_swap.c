@@ -6,11 +6,26 @@
 /*   By: maambuhl <marcambuehl4@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 15:33:41 by maambuhl          #+#    #+#             */
-/*   Updated: 2025/01/26 22:56:13 by maambuhl         ###   LAUSANNE.ch       */
+/*   Updated: 2025/01/26 22:59:21 by maambuhl         ###   LAUSANNE.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
+
+int	is_sorted(t_stack_info *stack_i)
+{
+	int	i;
+
+	i = 0;
+	while (i < (stack_i->size - 1))
+	{
+		if (stack_i->stack[i] < stack_i->stack[i + 1])
+			i++;
+		else
+			return (1);
+	}
+	return (0);
+}
 
 int	*create_stack(char **strs, int size)
 {
