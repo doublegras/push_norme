@@ -6,7 +6,7 @@
 /*   By: maambuhl <marcambuehl4@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 11:56:46 by maambuhl          #+#    #+#             */
-/*   Updated: 2025/01/26 22:24:02 by maambuhl         ###   LAUSANNE.ch       */
+/*   Updated: 2025/01/26 22:37:10 by maambuhl         ###   LAUSANNE.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int		make_mv_b(int *stack, int *b, int a);
 int		find_best_i(t_stack_info *stack_i, int init_min_mv);
 int		push_basic(t_stack_info *stack_i);
 int		find_place(int *stack, int *b, t_stack_info *stack_i);
-int		initiate_mv_a(t_stack_info *stack_i, int index_to_mv, int nb);
+void	initiate_mv_a(t_stack_info *stack_i, int index_to_mv, int nb);
 void	make_mv_a(t_stack_info *stack_i, int index_to_mv, int nb);
 int		offset_b(t_stack_info *stack_i, int place);
 void	final_push_to_a(t_stack_info *stack_i);

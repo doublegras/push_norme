@@ -6,7 +6,7 @@
 /*   By: maambuhl <marcambuehl4@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 12:33:59 by maambuhl          #+#    #+#             */
-/*   Updated: 2025/01/26 22:26:25 by maambuhl         ###   LAUSANNE.ch       */
+/*   Updated: 2025/01/26 22:37:45 by maambuhl         ###   LAUSANNE.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,21 +129,18 @@ int	find_best_i(t_stack_info *stack_i, int init_min_mv)
 	return (stack_i->best_i);
 }
 
-int	initiate_mv_a(t_stack_info *stack_i, int index_to_mv, int nb)
+void	initiate_mv_a(t_stack_info *stack_i, int index_to_mv, int nb)
 {
 	int	size_a;
 	int	nb_rr;
 	int	nb_rrr;
-	int	i;
 	
 	nb_rr = 0;
 	nb_rrr = 0;
-	i = 0;
 	size_a = stack_i->size - (*stack_i->b + 1);
 	index_to_mv = index_to_mv - (*stack_i->b + 1);
 	if (stack_i->place > (*stack_i->b / 2) && index_to_mv < (size_a / 2))
 	{
-		i = 1;
 		if (stack_i->nb_mv_a > stack_i->nb_mv_b)
 			nb_rr = stack_i->nb_mv_b;
 		else
@@ -151,7 +148,6 @@ int	initiate_mv_a(t_stack_info *stack_i, int index_to_mv, int nb)
 	}
 	else if (stack_i->place < (*stack_i->b / 2) && index_to_mv > (size_a / 2))
 	{
-		i = 1;
 		if (stack_i->nb_mv_a > stack_i->nb_mv_b)
 			nb_rrr = stack_i->nb_mv_b;
 		else
@@ -159,5 +155,4 @@ int	initiate_mv_a(t_stack_info *stack_i, int index_to_mv, int nb)
 	}
 	make_rr_rrr(stack_i, nb_rr, nb_rrr);
 	make_mv_a(stack_i, index_to_mv, nb);
-	return (i);
 }
