@@ -6,7 +6,7 @@
 /*   By: maambuhl <marcambuehl4@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 15:33:41 by maambuhl          #+#    #+#             */
-/*   Updated: 2025/01/26 22:59:21 by maambuhl         ###   LAUSANNE.ch       */
+/*   Updated: 2025/01/27 15:29:41 by maambuhl         ###   LAUSANNE.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,7 @@ void	init_struct(t_stack_info *stack_i, char **av, int ac)
 {
 	int				*stack;
 
+	check_input(av + 1, ac - 1);
 	stack = create_stack(av + 1, ac - 1);
 	stack_i->size = ac - 1;
 	stack_i->stack = stack;
@@ -130,21 +131,24 @@ int	main(int ac, char **av)
 
 	if (ac < 2)
 		err("Error\nYou should provide stack a as arguments");
-	check_input(av + 1, ac - 1);
 	init_struct(&stack_i, av, ac);
 	b = -1;
 	stack_i.b = &b;
-	if (ac == 4)
-		last_three(&stack_i);
-	if (ac <= 6)
-	{
-		while (--ac > 3)
-			pb(stack_i.b, stack_i.size, 1);
-		last_three(&stack_i);
-		while (--ac)
-			more_three(&stack_i);
-		final_push_to_a(&stack_i);
-	}
 	if (is_sorted(&stack_i))
+	{
+		if (ac <= 4)
+			last_three(&stack_i);
+		else if (ac <= 6)
+		{
+			while (--ac > 3)
+				pb(stack_i.b, stack_i.size, 1);
+			last_three(&stack_i);
+			while (--ac)
+				more_three(&stack_i);
+			final_push_to_a(&stack_i);
+		}
+	}
+	else
 		algo(&stack_i);
+	free(stack_i.stack);
 }

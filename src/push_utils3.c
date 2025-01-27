@@ -6,7 +6,7 @@
 /*   By: maambuhl <marcambuehl4@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/14 13:19:42 by maambuhl          #+#    #+#             */
-/*   Updated: 2025/01/26 22:59:54 by maambuhl         ###   LAUSANNE.ch       */
+/*   Updated: 2025/01/27 15:37:21 by maambuhl         ###   LAUSANNE.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,8 @@ void	more_three(t_stack_info *stack_i)
 	int	nb;
 	int	size_a;
 
+	if (*stack_i->b < 0)
+		return ;
 	size_a = stack_i->size - (*stack_i->b + 1);
 	place = find_place_in_a(stack_i->stack, stack_i,
 			stack_i->stack[*stack_i->b]);
