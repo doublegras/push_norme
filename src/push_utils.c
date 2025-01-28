@@ -6,7 +6,7 @@
 /*   By: maambuhl <marcambuehl4@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 12:02:16 by maambuhl          #+#    #+#             */
-/*   Updated: 2025/01/28 14:34:24 by maambuhl         ###   LAUSANNE.ch       */
+/*   Updated: 2025/01/28 16:16:40 by maambuhl         ###   LAUSANNE.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ void	input_cleaner(char **str)
 {
 	if (*str[0] == '+')
 		++(*str);
-	// if ((*str)[0] == '0' && (*str)[1] == '0')
 	if ((*str)[0] == '0' && ft_isdigit((*str)[1]))
 	{
 		while ((*str)[0] == '0')
