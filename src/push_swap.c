@@ -6,7 +6,7 @@
 /*   By: maambuhl <marcambuehl4@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 15:33:41 by maambuhl          #+#    #+#             */
-/*   Updated: 2025/01/27 15:29:41 by maambuhl         ###   LAUSANNE.ch       */
+/*   Updated: 2025/01/28 14:09:50 by maambuhl         ###   LAUSANNE.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -147,8 +147,8 @@ int	main(int ac, char **av)
 				more_three(&stack_i);
 			final_push_to_a(&stack_i);
 		}
+		else
+			algo(&stack_i);
 	}
-	else
-		algo(&stack_i);
 	free(stack_i.stack);
 }
