@@ -6,7 +6,7 @@
 /*   By: maambuhl <marcambuehl4@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/08 15:33:41 by maambuhl          #+#    #+#             */
-/*   Updated: 2025/01/28 14:09:50 by maambuhl         ###   LAUSANNE.ch       */
+/*   Updated: 2025/01/28 14:18:07 by maambuhl         ###   LAUSANNE.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,7 +130,7 @@ int	main(int ac, char **av)
 	t_stack_info	stack_i;
 
 	if (ac < 2)
-		err("Error\nYou should provide stack a as arguments");
+		return (0);
 	init_struct(&stack_i, av, ac);
 	b = -1;
 	stack_i.b = &b;
