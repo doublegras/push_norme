@@ -6,7 +6,7 @@
 /*   By: maambuhl <marcambuehl4@gmail.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 12:02:16 by maambuhl          #+#    #+#             */
-/*   Updated: 2025/02/12 13:03:32 by maambuhl         ###   LAUSANNE.ch       */
+/*   Updated: 2025/02/12 14:47:48 by maambuhl         ###   LAUSANNE.ch       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,7 @@
 
 void	err(char *str)
 {
-	if (str && errno)
-		perror(str);
-	else if (str)
+	if (str)
 		ft_putstr_fd(str, 2);
 	exit(EXIT_FAILURE);
 }
